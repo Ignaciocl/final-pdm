@@ -27,10 +27,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- /home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_cmdparser.h \
- /home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_LCD_port.h \
- /home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_LCD.h \
- /home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_I2C.h
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_cmdparser.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_LCD_port.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_LCD.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_I2C.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -60,7 +60,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-/home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_cmdparser.h:
-/home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_LCD_port.h:
-/home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_LCD.h:
-/home/ignaciocl/postgrado/PdM_workspace/practica_6/Drivers/API/Inc/API_I2C.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_cmdparser.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_LCD_port.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_LCD.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_I2C.h:

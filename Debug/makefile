@@ -35,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := practica_6
+BUILD_ARTIFACT_NAME := tpFinal
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-practica_6.elf \
+tpFinal.elf \
 
 MAP_FILES += \
-practica_6.map \
+tpFinal.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-practica_6.list \
+tpFinal.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: practica_6.elf secondary-outputs
+main-build: tpFinal.elf secondary-outputs
 
 # Tool invocations
-practica_6.elf practica_6.map: $(OBJS) $(USER_OBJS) /home/ignaciocl/postgrado/PdM_workspace/practica_6/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "practica_6.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/ignaciocl/postgrado/PdM_workspace/practica_6/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica_6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+tpFinal.elf tpFinal.map: $(OBJS) $(USER_OBJS) /home/ignaciocl/postgrado/stm32/practica_6/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "tpFinal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/ignaciocl/postgrado/stm32/practica_6/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="tpFinal.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -71,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-practica_6.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "practica_6.list"
+tpFinal.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "tpFinal.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout practica_6.elf practica_6.list practica_6.map
+	-$(RM) default.size.stdout tpFinal.elf tpFinal.list tpFinal.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

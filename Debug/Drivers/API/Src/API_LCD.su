@@ -1,0 +1,6 @@
+../Drivers/API/Src/API_LCD.c:37:13:GoToAddress	16	static
+../Drivers/API/Src/API_LCD.c:42:6:WriteString	16	static
+../Drivers/API/Src/API_LCD.c:45:6:GoToNextRow	8	static
+../Drivers/API/Src/API_LCD.c:51:13:set4Bit	8	static
+../Drivers/API/Src/API_LCD.c:69:6:ClearScreen	16	static
+../Drivers/API/Src/API_LCD.c:82:6:InitLCD	16	static

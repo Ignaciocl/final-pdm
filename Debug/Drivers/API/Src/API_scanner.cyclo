@@ -1,0 +1,2 @@
+../Drivers/API/Src/API_scanner.c:16:6:ReadSensor	2
+../Drivers/API/Src/API_scanner.c:25:6:WriteSensor	1

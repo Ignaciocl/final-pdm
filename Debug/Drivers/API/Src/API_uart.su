@@ -1,0 +1,6 @@
+../Drivers/API/Src/API_uart.c:17:13:errorIfNeeded	16	static
+../Drivers/API/Src/API_uart.c:36:17:findCharIndex	24	static
+../Drivers/API/Src/API_uart.c:67:8:uartInit	320	static
+../Drivers/API/Src/API_uart.c:111:6:uartSendString	24	static
+../Drivers/API/Src/API_uart.c:125:6:uartSendStringSize	16	static
+../Drivers/API/Src/API_uart.c:138:6:uartReceiveStringSize	16	static

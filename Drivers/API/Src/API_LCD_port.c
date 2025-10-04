@@ -48,7 +48,7 @@ bool sendInitNibble(uint8_t nibble) {
 }
 
 bool WriteLCD(uint8_t* value, bool command) {
-    uint16_t size = findCharIndex(value, '\0');
+    uint16_t size = command ? 1 : findCharIndex(value, '\0');
     if (size > MAX_LCD_CHARS) {
     	size = MAX_LCD_CHARS;
     }

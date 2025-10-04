@@ -3,4 +3,4 @@
 ../Drivers/API/Src/API_LCD.c:45:6:GoToNextRow	1
 ../Drivers/API/Src/API_LCD.c:51:13:set4Bit	5
 ../Drivers/API/Src/API_LCD.c:69:6:ClearScreen	3
-../Drivers/API/Src/API_LCD.c:82:6:InitLCD	5
+../Drivers/API/Src/API_LCD.c:82:6:InitLCD	4

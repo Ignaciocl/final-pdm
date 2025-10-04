@@ -35,7 +35,7 @@ static uint8_t initCommandsSize = sizeof(INIT_COMMANDS) / sizeof(INIT_COMMANDS[0
 static uint8_t clearCommandsSize = sizeof(CLEAR_COMMANDS) / sizeof(CLEAR_COMMANDS[0]);
 
 static bool GoToAddress(uint8_t address) {
-	sentAddress = MAX_ADDRESS | nextAddress;
+	sentAddress = MAX_ADDRESS | address;
 
 	return WriteLCD(&sentAddress, true);
 }
@@ -67,7 +67,7 @@ static bool set4Bit() {
 }
 
 bool ClearScreen() {
-	nextAddress = 0;
+	nextAddress = 0x00;
 	for (uint8_t i = 0; i < clearCommandsSize; i++) {
 		bool status = WriteLCD(&CLEAR_COMMANDS[i], true);
 		if (!status) {
@@ -75,7 +75,7 @@ bool ClearScreen() {
 		}
 		HAL_Delay(2);
 	}
-	return true;
+	return GoToAddress(0x00);
 }
 
 
@@ -87,7 +87,5 @@ bool InitLCD() {
 		HAL_Delay(2);
 	}
 
-	if (!ClearScreen()) return false;
-
-	return GoToAddress(0x00);
+	return ClearScreen();
 }

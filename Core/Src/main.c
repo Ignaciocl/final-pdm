@@ -104,9 +104,9 @@ int main(void)
   bool status = InitLCD();
   /* USER CODE END 2 */
 
-  status = status && WriteString("licha puto");
-//  GoToNextRow();
-//  status && WriteString("putaso que sos");
+  status = status && WriteString("licha crack");
+  GoToNextRow();
+  status && WriteString("tipo crack");
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint8_t rescan = 81;
@@ -128,7 +128,7 @@ int main(void)
 	  if (distance_cm != otherReadValue) {
 		  Error_Handler();
 	  } else {
-		  ClearScreen();
+		  //ClearScreen();
 		  //WriteString("distancia leida");
 		  //GoToNextRow();
 		  //WriteString(&otherReadValue);

@@ -1,4 +1,8 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+Drivers/API/Src/API_FSM.o: ../Drivers/API/Src/API_FSM.c \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_LCD.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_scanner.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_debounce.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_delay.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -27,9 +31,13 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_FSM.h \
- /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_uart.h
-../Core/Inc/main.h:
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_uart.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/common.h \
+ /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/messages.h
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_LCD.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_scanner.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_debounce.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_delay.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -58,5 +66,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_FSM.h:
 /home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/API_uart.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/common.h:
+/home/ignaciocl/postgrado/stm32/practica_6/Drivers/API/Inc/messages.h:

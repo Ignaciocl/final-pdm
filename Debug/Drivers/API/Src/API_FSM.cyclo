@@ -1,0 +1,7 @@
+../Drivers/API/Src/API_FSM.c:27:6:Init_FSM	3
+../Drivers/API/Src/API_FSM.c:41:6:UpdateFSM	1
+../Drivers/API/Src/API_FSM.c:45:6:idleStage	2
+../Drivers/API/Src/API_FSM.c:53:6:sendingStage	5
+../Drivers/API/Src/API_FSM.c:62:6:waitingStage	2
+../Drivers/API/Src/API_FSM.c:69:6:readingStage	4
+../Drivers/API/Src/API_FSM.c:83:6:writingStage	12

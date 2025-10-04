@@ -64,7 +64,7 @@ static uint16_t findCharIndex(uint8_t *pstring, uint8_t charToFind, uint16_t max
  * @return `true` if the UART was successfully initialized,
  *         `false` otherwise.
  */
-bool_t uartInit() {
+bool uartInit() {
 	UartHandle.Instance = USART2;
 	UartHandle.Init.BaudRate = 9600;
 	UartHandle.Init.WordLength = UART_WORDLENGTH_9B;
@@ -108,11 +108,11 @@ bool_t uartInit() {
  *
  * @param[in] pstring  Pointer to the null-terminated string to transmit.
  */
-void uartSendString(uint8_t * pstring) {
+bool uartSendString(uint8_t * pstring) {
 	errorIfNeeded(pstring);
 	uint16_t max = 0;
 	uint16_t i = findCharIndex(pstring, '\0', max -1);
-	HAL_UART_Transmit(&UartHandle, pstring, i, TIMEOUT);
+	return HAL_UART_Transmit(&UartHandle, pstring, i, TIMEOUT) == HAL_OK;
 }
 /**
  * @brief Sends a fixed-size string over UART.

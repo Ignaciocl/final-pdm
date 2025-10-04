@@ -1,0 +1,7 @@
+../Drivers/API/Src/API_FSM.c:27:6:Init_FSM	16	static
+../Drivers/API/Src/API_FSM.c:41:6:UpdateFSM	8	static
+../Drivers/API/Src/API_FSM.c:45:6:idleStage	8	static
+../Drivers/API/Src/API_FSM.c:53:6:sendingStage	16	static
+../Drivers/API/Src/API_FSM.c:62:6:waitingStage	8	static
+../Drivers/API/Src/API_FSM.c:69:6:readingStage	16	static
+../Drivers/API/Src/API_FSM.c:83:6:writingStage	16	static

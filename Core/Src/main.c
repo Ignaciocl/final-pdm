@@ -22,10 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "API_cmdparser.h"
-#include "API_LCD_port.h"
-#include "API_LCD.h"
-#include "API_I2C.h"
+#include "API_FSM.h"
+#include "API_uart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,9 +60,7 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-// const tick_t FREQ[] = { 500, 100 };
-// const uint32_t DEBOUNCE_TIME = 40;
-uint8_t readValue[2];
+uint8_t* ERROR_STAGE_LCD = (uint8_t*) "\n\rError on process of update the FSM";
 /* USER CODE END 0 */
 
 /**
@@ -81,7 +77,8 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -101,40 +98,20 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   /* Initialize */
-  bool status = InitLCD();
+  if (!Init_FSM()) Error_Handler();
   /* USER CODE END 2 */
-
-  status = status && WriteString("licha crack");
-  GoToNextRow();
-  status && WriteString("tipo crack");
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t rescan = 81;
-  uint16_t distance_cm;
-  uint8_t otherReadValue;
+
   while (1)
     {
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if (!TransmitToSize(0x70, &rescan, 1)) Error_Handler();
-	  HAL_Delay(1000);
-	  if (!ReceiveToSize(0x70, readValue, 2)) {
-		  Error_Handler();
+	  bool status = UpdateFSM();
+	  if (!status) {
+		  uartSendString(ERROR_STAGE_LCD);
 	  }
-	  distance_cm = (readValue[0] << 8) | readValue[1];
-	  ReadSensor(&otherReadValue);
-	  if (distance_cm != otherReadValue) {
-		  Error_Handler();
-	  } else {
-		  //ClearScreen();
-		  //WriteString("distancia leida");
-		  //GoToNextRow();
-		  //WriteString(&otherReadValue);
-		  //WriteString("centimetros");
-	  }
-
     }
   /* USER CODE END 3 */
 }

@@ -9,6 +9,7 @@
 #define API_INC_COMMON_H_
 
 #include <stdint.h>
+#include <stdbool.h>
 uint16_t findCharIndex(uint8_t *pstring, uint8_t charToFind);
-
+bool NumberToAscii(uint8_t* number, uint8_t *buffer);
 #endif /* API_INC_COMMON_H_ */

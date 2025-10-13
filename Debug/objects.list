@@ -9,7 +9,6 @@
 "./Drivers/API/Src/API_I2c.o"
 "./Drivers/API/Src/API_LCD.o"
 "./Drivers/API/Src/API_LCD_port.o"
-"./Drivers/API/Src/API_cmdparser.o"
 "./Drivers/API/Src/API_debounce.o"
 "./Drivers/API/Src/API_delay.o"
 "./Drivers/API/Src/API_hardware.o"

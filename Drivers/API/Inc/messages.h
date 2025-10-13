@@ -8,8 +8,8 @@
 #ifndef API_INC_MESSAGES_H_
 #define API_INC_MESSAGES_H_
 // Information messages
-uint8_t* ROW_ONE_WELCOME = (uint8_t*)"press button";
-uint8_t* ROW_TWO_WELCOME = (uint8_t*)"to start";
+uint8_t* ROW_ONE_WELCOME = (uint8_t*)"Press button to";
+uint8_t* ROW_TWO_WELCOME = (uint8_t*)"start";
 uint8_t* UART_WELCOME = (uint8_t*)"\n\rPress button to start";
 uint8_t* READ_DISTANCE = (uint8_t*)"Distance read:";
 uint8_t* DISTANCE_UNIT = (uint8_t*)" centimeters";

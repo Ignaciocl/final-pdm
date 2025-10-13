@@ -11,7 +11,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-uint8_t ReadSensor();
+bool ReadSensor(uint16_t* valueRead);
 bool WriteSensor();
 
 

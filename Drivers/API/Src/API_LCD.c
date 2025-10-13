@@ -7,7 +7,7 @@
 
 #include "API_LCD.h"
 #include "API_LCD_port.h"
-#include "stm32f4xx_hal.h"
+#include "API_hardware.h"
 
 #define CLEAR_COMMAND 0x01
 #define RETURN_HOME  0x02
@@ -34,38 +34,68 @@ static uint8_t INIT_COMMANDS[] = {
 static uint8_t initCommandsSize = sizeof(INIT_COMMANDS) / sizeof(INIT_COMMANDS[0]);
 static uint8_t clearCommandsSize = sizeof(CLEAR_COMMANDS) / sizeof(CLEAR_COMMANDS[0]);
 
-static bool GoToAddress(uint8_t address) {
+/**
+ * @brief Sets the LCD cursor to a specific address.
+ *
+ * @param address LCD address to move to.
+ * @return true if successful, false otherwise.
+ */
+static bool goToAddress(uint8_t address) {
 	sentAddress = MAX_ADDRESS | address;
 
 	return WriteLCD(&sentAddress, true);
 }
+
+/**
+ * @brief Writes a string to the LCD display.
+ *
+ * @param str Pointer to the null-terminated string to display.
+ * @return true if successful, false otherwise.
+ */
 bool WriteString(uint8_t* str) {
 	return WriteLCD(str, false);
 }
+
+/**
+ * @brief Moves the LCD cursor to the next row.
+ *
+ * @return true if successful, false otherwise.
+ */
 bool GoToNextRow() {
 	nextAddress = (nextAddress + ROW_SIZE) % MAX_ADDRESS;
-	return GoToAddress(nextAddress);
+	return goToAddress(nextAddress);
 }
 
-
+/**
+ * @brief Initializes the LCD to operate in 4-bit mode.
+ *
+ * Sends the required initialization sequence for 4-bit communication.
+ *
+ * @return true if initialization succeeded, false otherwise.
+ */
 static bool set4Bit() {
-	HAL_Delay(50); // Initial power-on delay
+	blockingDelay(50); // Initial power-on delay
 
 	if (!sendInitNibble(FIRST_COMMAND)) return false;
-	HAL_Delay(5);
+	blockingDelay(5);
 
 	if (!sendInitNibble(FIRST_COMMAND)) return false;
-	HAL_Delay(1);
+	blockingDelay(1);
 
 	if (!sendInitNibble(FIRST_COMMAND)) return false;
-	HAL_Delay(1);
+	blockingDelay(1);
 
 	if (!sendInitNibble(SECOND_COMMAND)) return false;  // Switch to 4-bit
-	HAL_Delay(1);
+	blockingDelay(1);
 
 	return true;
 }
 
+/**
+ * @brief Clears the LCD screen and resets the cursor to address 0x00.
+ *
+ * @return true if clear operation succeeded, false otherwise.
+ */
 bool ClearScreen() {
 	nextAddress = 0x00;
 	for (uint8_t i = 0; i < clearCommandsSize; i++) {
@@ -73,18 +103,24 @@ bool ClearScreen() {
 		if (!status) {
 			return status;
 		}
-		HAL_Delay(2);
+		blockingDelay(2);
 	}
-	return GoToAddress(0x00);
+	return goToAddress(0x00);
 }
 
-
+/**
+ * @brief Initializes the LCD display.
+ *
+ * Performs the full LCD setup sequence and clears the screen.
+ *
+ * @return true if initialization succeeded, false otherwise.
+ */
 bool InitLCD() {
 	if (!set4Bit()) return false;
 
 	for (uint8_t i = 0; i < initCommandsSize; i++) {
 		if (!WriteLCD(&INIT_COMMANDS[i], true)) return false;
-		HAL_Delay(2);
+		blockingDelay(2);
 	}
 
 	return ClearScreen();

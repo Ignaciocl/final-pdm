@@ -11,5 +11,5 @@
 #include <stdint.h>
 #include <stdbool.h>
 uint16_t findCharIndex(uint8_t *pstring, uint8_t charToFind);
-bool NumberToAscii(uint8_t* number, uint8_t *buffer);
+bool NumberToAscii(uint16_t value, uint8_t *buffer);
 #endif /* API_INC_COMMON_H_ */

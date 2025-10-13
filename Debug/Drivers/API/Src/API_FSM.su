@@ -4,4 +4,4 @@
 ../Drivers/API/Src/API_FSM.c:53:6:sendingStage	16	static
 ../Drivers/API/Src/API_FSM.c:62:6:waitingStage	8	static
 ../Drivers/API/Src/API_FSM.c:69:6:readingStage	16	static
-../Drivers/API/Src/API_FSM.c:83:6:writingStage	16	static
+../Drivers/API/Src/API_FSM.c:80:6:writingStage	16	static

@@ -16,6 +16,15 @@ static const uint16_t ADDRESS = 0x27;
 
 static const uint8_t MAX_LCD_CHARS = 16;  // More than this will fill the row
 static const uint8_t MAX_LCD_BYTES = (MAX_LCD_CHARS * 4);
+
+/**
+ * @brief Converts a sequence of bytes into LCD-compatible 4-bit commands.
+ *
+ * @param value Pointer to input data (characters or commands).
+ * @param size Pointer to size of the input; updated to output size after conversion.
+ * @param lcdBuffer Pointer to buffer where converted bytes will be stored.
+ * @param command true if value represents a command, false if data (string).
+ */
 static void translateIntoLcd(uint8_t* value, uint16_t* size, uint8_t* lcdBuffer, bool command) {
 	uint16_t outIndex = 0;
 	uint8_t rsFlag = command ? 0x00 : LCD_RS;
@@ -37,6 +46,13 @@ static void translateIntoLcd(uint8_t* value, uint16_t* size, uint8_t* lcdBuffer,
 	*size = outIndex;
 }
 
+
+/**
+ * @brief Sends an LCD initialization nibble.
+ *
+ * @param nibble The upper 4 bits of the command to send.
+ * @return true if transmission succeeded, false otherwise.
+ */
 bool sendInitNibble(uint8_t nibble) {
 	uint8_t highNibble = nibble & 0xF0;  // Extract upper 4 bits
 
@@ -47,6 +63,13 @@ bool sendInitNibble(uint8_t nibble) {
 	return TransmitToSize(ADDRESS, data, 2);
 }
 
+/**
+ * @brief Writes data or command bytes to the LCD over I2C.
+ *
+ * @param value Pointer to data or command buffer.
+ * @param command true if sending a command, false if writing text.
+ * @return true if successful, false otherwise.
+ */
 bool WriteLCD(uint8_t* value, bool command) {
     uint16_t size = command ? 1 : findCharIndex(value, '\0');
     if (size > MAX_LCD_CHARS) {

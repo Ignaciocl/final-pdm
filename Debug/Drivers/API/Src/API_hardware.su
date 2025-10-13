@@ -2,3 +2,4 @@
 ../Drivers/API/Src/API_hardware.c:19:6:togglePin	8	static
 ../Drivers/API/Src/API_hardware.c:22:8:readPin	8	static
 ../Drivers/API/Src/API_hardware.c:25:10:getTick	8	static
+../Drivers/API/Src/API_hardware.c:29:6:blockingDelay	16	static

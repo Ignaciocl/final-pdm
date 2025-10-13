@@ -4,4 +4,4 @@
 ../Drivers/API/Src/API_FSM.c:53:6:sendingStage	5
 ../Drivers/API/Src/API_FSM.c:62:6:waitingStage	2
 ../Drivers/API/Src/API_FSM.c:69:6:readingStage	4
-../Drivers/API/Src/API_FSM.c:83:6:writingStage	12
+../Drivers/API/Src/API_FSM.c:80:6:writingStage	12

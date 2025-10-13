@@ -16,5 +16,6 @@ void setPin(bool_t on);
 void togglePin();
 bool_t readPin();
 uint32_t getTick();
+void blockingDelay(uint32_t delay);
 
 #endif /* API_INC_API_HARDWARE_H_ */

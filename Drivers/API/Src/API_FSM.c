@@ -109,7 +109,6 @@ bool waitingStage() {
  *
  * @return true if successful, false otherwise.
  */
-bool
 bool readingStage() {
 	bool status = ReadSensor(&readValue);
 	status = status && NumberToAscii(readValue, asciiValueRead);

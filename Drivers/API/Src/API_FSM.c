@@ -12,16 +12,21 @@
 #include "API_uart.h"
 #include "common.h"
 #include "messages.h"
+// These methods here have the functionality of changing themselves to the next step
+// This is done like this to avoid having to have a single huge method and to have the responsability as separated as possible
 static bool (*actualFunction)();
 static bool idleStage();
 static bool sendingStage();
 static bool waitingStage();
 static bool readingStage();
 static bool writingStage();
+
+
 static delay_t waitingTimeDelay;
 static tick_t WAITING_TIME = 2000;
 
 static uint16_t readValue = 0;
+// As most we will have 4 bytes to write in ascii format (values ranging from 0 to ~750 with a \0 at the end) 
 static uint8_t asciiValueRead[4] = { 0 };
 
 /**
